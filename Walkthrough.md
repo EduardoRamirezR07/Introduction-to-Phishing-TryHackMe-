@@ -45,7 +45,52 @@ We will close this incident report as false positive and leave a note why so
 <img width="1118" height="381" alt="Captura de pantalla 2026-05-03 a la(s) 3 28 00 p m" src="https://github.com/user-attachments/assets/be86d536-0817-4fe8-909b-c5c318943f31" />
 
 
-Ans that is how we solved our first alert 
+And that is how we solved our first alert 
 
 <img width="1431" height="753" alt="Captura de pantalla 2026-05-03 a la(s) 3 29 08 p m" src="https://github.com/user-attachments/assets/e8148f2c-b222-40b4-98a0-4044135a4787" />
+
+___
+
+## Now we will handle our firewall alert
+
+<img width="1533" height="506" alt="Captura de pantalla 2026-05-08 a la(s) 12 01 21 a m" src="https://github.com/user-attachments/assets/1e8b832e-e1fd-46fe-a72e-d7c683604d9e" />
+
+Our first red flag is a shortened **http** link instead of being a https
+
+<img width="1537" height="519" alt="Captura de pantalla 2026-05-08 a la(s) 12 07 31 a m" src="https://github.com/user-attachments/assets/5a0bc65c-f089-45bc-a49e-9034f8462eb7" />
+
+First we will run both IP addresses on Splunk, (*SourceIP* and *DestinationIP*) searching for any previous alerts on events
+
+
+## SourceIP: (just the current event)
+<img width="1007" height="685" alt="Captura de pantalla 2026-05-08 a la(s) 12 10 38 a m" src="https://github.com/user-attachments/assets/d2327ca5-4e93-4b04-95ee-5a3529d5d87a" />
+
+## DestinationIP: (urrent event as well)
+
+<img width="949" height="676" alt="Captura de pantalla 2026-05-08 a la(s) 12 11 57 a m" src="https://github.com/user-attachments/assets/90010f07-2e87-4bc8-8147-38848f5b994e" />
+
+Next step will by analyzing that link (without opening) in VirusTotal
+
+<img width="1919" height="522" alt="Captura de pantalla 2026-05-08 a la(s) 12 17 04 a m" src="https://github.com/user-attachments/assets/5673e507-09a1-4786-9fd8-a2dd99c26d33" />
+
+Indeed it is pishing attempt, we will mark it as such
+
+<img width="1579" height="585" alt="Captura de pantalla 2026-05-08 a la(s) 12 18 02 a m" src="https://github.com/user-attachments/assets/107fc030-6983-44a7-84a2-94125d52528d" />
+
+and write our case report
+
+<img width="1486" height="789" alt="Captura de pantalla 2026-05-08 a la(s) 12 23 10 a m" src="https://github.com/user-attachments/assets/bd984c90-60f0-4b58-a790-c317d9989426" />
+
+Another suspicious alert is the following, were the email domain does not seems legit *m1crosoftsupport.co* and IP address *102.89.222.14* seems supicious: 
+
+<img width="1584" height="563" alt="Captura de pantalla 2026-05-08 a la(s) 12 36 35 a m" src="https://github.com/user-attachments/assets/70413057-ea87-4bd7-a606-8bd71be36b5e" />
+
+After searching the IP address we can confirm the malicious IP
+
+<img width="852" height="601" alt="Captura de pantalla 2026-05-08 a la(s) 12 39 10 a m" src="https://github.com/user-attachments/assets/a2abccef-81dd-4efe-9703-5c928a65932a" />
+
+We did it!
+
+<img width="1329" height="423" alt="Captura de pantalla 2026-05-08 a la(s) 12 46 13 a m" src="https://github.com/user-attachments/assets/59dc613b-be73-403e-b059-617e830dcf2a" />
+
 
